@@ -16,7 +16,7 @@ This package contains a calculation for quantum-statistical correlation function
 - [**HypCalculator.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/HypCalculator.h): Heacer file for the `HypCalculator` class
 - [**functions.cpp**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/functions.cpp): Auxiliary functions, such as the Gamma function
 - [**functions.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/functions.h): : Heacer file for `functions.cpp`
-- [**basics.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/basics.h): 
+- [**basics.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/basics.h): Basic constants, needed for all calculations
 
 ## Example results
 The below example has been created using the output from [coulcorrtest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc)
