@@ -8,8 +8,8 @@ int main()
   // Create an instance of the CoulCorrCalc class
   CoulCorrCalc *cccinstance = new CoulCorrCalc();
   // Declare parameter variables
-  double alpha = 1.3;
-  double R = 5.2;
+  double alpha = 0.9;
+  double R = 9.2;
   double lambda = 1.0;
   double Q = 0.06;
   // Calculate correlation function with various integral settings
