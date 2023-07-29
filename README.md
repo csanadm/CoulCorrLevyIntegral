@@ -27,8 +27,7 @@ The below example has been created using the output from [coulcorrtest.cc](https
 
 The below example has been created using the output from [integraltest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.cc)
 
-![integraltest](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/cef69493-1dc3-4854-af5d-5304e77c8e8c)
-
+![integraltest](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/5a0b8ecb-deb0-4c8a-bb91-2cf29b633eb8)
 
 ## Publications
 - To be listed
