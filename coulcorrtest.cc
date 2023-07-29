@@ -11,12 +11,10 @@ int main()
   // Start loop for calculating the correlation function
   for(double Q=0.001; Q<0.2; Q+=0.001)
   {
-    // Full correlation function, including the Coulomb effect, but for lambda = 1
-    double FullCorrFunc = cccinstance->FullCorrFuncValue(alpha, R, Q);
     // Coulomb correction
     double CoulombCorr = cccinstance->CoulCorrValue(alpha, R, Q);
     // Pure (no Coulomb) correlation function, with the specified lambda value
-    double PureCorrFunc = 1 + lambda*(FullCorrFunc/CoulombCorr-1);
+    double PureCorrFunc = cccinstance->PureCorrFuncValueLambda(alpha, R, lambda, Q);
     // Full correlation function, including the Coulomb effect, with the specified lambda value
     double FullCorrFuncLambda = cccinstance->FullCorrFuncValueLambda(alpha, R, lambda, Q);
     // Printout
