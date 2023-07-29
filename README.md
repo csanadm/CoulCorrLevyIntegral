@@ -7,12 +7,12 @@ This package contains a calculation for quantum-statistical correlation function
 
 ## File content
 - [**README.md**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/README.md): This README file
-- [**Makefile**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/main/Makefile): Using `make all`, it will create an executable
+- [**Makefile**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/Makefile): Using `make all`, it will create an executable
 
 ## Example results
-The below example has been created using the output from [calc_func.cc](https://github.com/csanadm/coulcorrlevyparam/blob/main/calc_func.cc)
+The below example has been created using the output from [coulcorrtest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc)
 
-![calc_func](https://user-images.githubusercontent.com/38218165/188124611-14cda30a-82ac-4a4d-9944-7dad7c0fe57c.png)
+![coulcorrtest](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/8ff72bda-34ae-4d04-bdf0-5486dcbdf6f7)
 
 
 ## Publications
