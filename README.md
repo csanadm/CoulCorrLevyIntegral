@@ -25,7 +25,7 @@ The below example has been created using the output from [coulcorrtest.cc](https
 
 ![coulcorrtest](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/8ff72bda-34ae-4d04-bdf0-5486dcbdf6f7)
 
-The below example has been created using the output from [integraltest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.cc)
+The below example has been created using the output from [integraltest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.cc), for lambda=0.9, R=9.2 fm, alpha=1.0, Q=0.06 GeV/c
 
 ![integraltest](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/5a0b8ecb-deb0-4c8a-bb91-2cf29b633eb8)
 
