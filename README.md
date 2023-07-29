@@ -1,6 +1,6 @@
-# CoulCorrLevyIntegral
+# Correlation function calculation with Lévy source and Coulomb FSI
 
- Coulomb correction integral calculation based on a Levy source
+ Bose-Einstein correlation function integral calculation based on a Lévy source, incorporating the Coulomb final-state interaction. Most of the integrals can be performed analytically, only one, very well behaving integral remains, that is performed numerically.
 
 ## Description
 This package contains a calculation for quantum-statistical correlation functions, including Coulomb-correction, based on analytic results and a final numerical integration. For the calculation to work, the `boost` library is needed, although the numerical integral can be programmed by the user as well.
