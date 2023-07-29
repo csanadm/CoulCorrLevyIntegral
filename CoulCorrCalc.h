@@ -28,6 +28,9 @@ class CoulCorrCalc
   
   // Coulomb correction, without the lambda value
   double CoulCorrValue(const double alpha, const double R, const double Q);
+  
+  // Set integration properties
+  void SetIntegrationProperties(int NMaxIter, double epsTolerance);
 
 private:
   // Private functions, explained in the source code
@@ -43,6 +46,11 @@ private:
   
   // Imaginary unit (1i since c++17)
   complex<double> I = complex<double>(0., 1.);
+  
+  // Integration properties
+  static const unsigned int NGaussKronrod = 15; // this has to be constant, to be set at compile time
+  unsigned int NMaxIter;
+  double epsTolerance;
 };
 
 #endif // _CoulCorrCalc_h_

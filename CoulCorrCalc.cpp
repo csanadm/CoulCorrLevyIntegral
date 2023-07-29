@@ -4,12 +4,23 @@
 CoulCorrCalc::CoulCorrCalc()
 {
   HypCalculatorInstance = new HypCalculator();
+  NMaxIter = 3;
+  epsTolerance = 1e-2;
+  NFuncEvals = 0;
 }
 
 // Destructor
 CoulCorrCalc::~CoulCorrCalc()
 {
   delete HypCalculatorInstance;
+}
+
+// Set integration properties
+void CoulCorrCalc::SetIntegrationProperties(int _NMaxIter, double _epsTolerance)
+{
+  NMaxIter = _NMaxIter;
+  epsTolerance = _epsTolerance;
+  
 }
 
 // No-Coulomb auxiliary correlation function term, with the pair-radius Rcc
@@ -31,10 +42,10 @@ double CoulCorrCalc::A_1_s_wo_int(const double x, const double k, const double R
 // Exact result for A_2,s
 double CoulCorrCalc::A_2_s_wo_int(const double x, const double k, const double Rcc, const double alpha, const double eta)
 {
- double func_1 = sin(eta * log((1. + x)/(1. - x))) / (x * (x + 1.));
- double func_2 = x * x * exp(M_PI * eta) * (f_s(2. * k * x, Rcc, alpha) - f_s(2. * k, Rcc, alpha)) / (1. - x);
- double func_3 = (f_s(2. * k / x, Rcc, alpha) - f_s(2. * k, Rcc, alpha)) / (1. - x);
- return (2. / eta ) * (func_1 * func_2 - func_1 * func_3);
+  double func_1 = sin(eta * log((1. + x)/(1. - x))) / (x * (x + 1.));
+  double func_2 = x * x * exp(M_PI * eta) * (f_s(2. * k * x, Rcc, alpha) - f_s(2. * k, Rcc, alpha)) / (1. - x);
+  double func_3 = (f_s(2. * k / x, Rcc, alpha) - f_s(2. * k, Rcc, alpha)) / (1. - x);
+  return (2. / eta ) * (func_1 * func_2 - func_1 * func_3);
 }
 
 // The A1 numerical integral, with boost::math::quadrature::gauss_kronrod
@@ -49,11 +60,9 @@ double CoulCorrCalc::A1_int(const double k, const double Rcc, const double alpha
   double error = 0;
   double lowerlim = 0;
   double upperlim = 1;
-  int maxiter = 3;
-  double tolerance = 1e-2;
   auto func = bind(&CoulCorrCalc::A_1_s_wo_int, this, placeholders::_1, k, Rcc, alpha, eta);
 
-  double result = boost::math::quadrature::gauss_kronrod<double, 15>::integrate(func, lowerlim, upperlim, maxiter, tolerance, &error);
+  double result = boost::math::quadrature::gauss_kronrod<double, NGaussKronrod>::integrate(func, lowerlim, upperlim, NMaxIter, epsTolerance, &error);
   return result;
 }
 
@@ -69,11 +78,9 @@ double CoulCorrCalc::A2_int(const double k, const double Rcc, const double alpha
   double error = 0;
   double lowerlim = 0;
   double upperlim = 1;
-  int maxiter = 3;
-  double tolerance = 1e-2;
   auto func = bind(&CoulCorrCalc::A_2_s_wo_int, this, placeholders::_1, k, Rcc, alpha, eta);
 
-  double result =  boost::math::quadrature::gauss_kronrod<double, 15>::integrate(func, lowerlim, upperlim, maxiter, tolerance, &error);
+  double result =  boost::math::quadrature::gauss_kronrod<double, NGaussKronrod>::integrate(func, lowerlim, upperlim, NMaxIter, epsTolerance, &error);
   return result;
 }
 
