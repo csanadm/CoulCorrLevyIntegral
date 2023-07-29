@@ -16,10 +16,21 @@ class CoulCorrCalc
  public:
   CoulCorrCalc();
   ~CoulCorrCalc();
-  double CorrFuncValue(const double alpha, const double R, const double Q);
+  
+  // Correlation function, for lambda=1, with Coulomb
+  double FullCorrFuncValue(const double alpha, const double R, const double Q);
+  
+  // Correlation function, incorporating the lambda value, via the Bowler-Sinyikov formula
+  double FullCorrFuncValueLambda(const double alpha, const double R, double lambda, const double Q);
+  
+  // Correlation function, without Coulomb, with lambda
+  double PureCorrFuncValueLambda(const double alpha, const double R, double lambda, const double Q);
+  
+  // Coulomb correction, without the lambda value
   double CoulCorrValue(const double alpha, const double R, const double Q);
 
 private:
+  // Private functions, explained in the source code
   double f_s(const double q, const double R, const double alpha);
   double A_1_s_wo_int(const double x, const double k, const double R, const double alpha, const double eta);
   double A_2_s_wo_int(const double x, const double k, const double R, const double alpha, const double eta);
@@ -27,22 +38,11 @@ private:
   double A2_int(const double k, const double R, const double alpha, const double eta);
   const double calc_eta(const double k, const double Mc2); // k: MeV/c, Mc2: MeV, Mc2 is the mass of the particle, not the reduced mass!!!
 
+  // An instance of the hypergeometric 2F1 calculator
   HypCalculator* HypCalculatorInstance;
   
+  // Imaginary unit (1i since c++17)
   complex<double> I = complex<double>(0., 1.);
-
-  double xlim1 = 0.05;
-  double xlim2 = 0.95;
-
-  int NQ = 399;
-  double dQ = 0.001;
-  double Qmin = 0.001;
-  double Qmax = 0.399;
-
-  static const int NA = 15;
-  static const int NR = 10;
-  static constexpr double alpha_values[NA] = {0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0};
-  static constexpr double R_values[NR]     = {3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.,11.,12.};
 };
 
 #endif // _CoulCorrCalc_h_
