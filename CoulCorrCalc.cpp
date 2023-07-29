@@ -75,7 +75,7 @@ const double CoulCorrCalc::calc_eta(const double k, const double Mc2)
   return FINESTRUCTURE_CONSTANT * Mc2 * 0.5 / k;
 }
 
-double CoulCorrCalc::CoulCorrValue(const double alpha, const double R, const double Q)
+double CoulCorrCalc::CorrFuncValue(const double alpha, const double R, const double Q)
 {
   double k = Q*500; //k = Q/2, but in MeV here
   double Rcc = R*pow(2.,1./alpha);
@@ -85,5 +85,18 @@ double CoulCorrCalc::CoulCorrValue(const double alpha, const double R, const dou
   double A2 = A2_int(k, Rcc, alpha, eta);
   double value = Gamow * (1. + f_s(2.*k, Rcc, alpha) + (eta / M_PI) * (A1 + A2));
   return value;
+}
+
+double CoulCorrCalc::CoulCorrValue(const double alpha, const double R, const double Q)
+{
+  double k = Q*500; //k = Q/2, but in MeV here
+  double Rcc = R*pow(2.,1./alpha);
+  double eta = calc_eta(k, Mass_Pi*1000.);
+  double Gamow = (2. * M_PI * eta) / (exp(2. * M_PI * eta) - 1.);
+  double A1 = A1_int(k, Rcc, alpha, eta);
+  double A2 = A2_int(k, Rcc, alpha, eta);
+  double C0value = 1. + f_s(2.*k, Rcc, alpha);
+  double CCvalue = Gamow * (1. + f_s(2.*k, Rcc, alpha) + (eta / M_PI) * (A1 + A2));
+  return CCvalue/C0value;
 }
 
