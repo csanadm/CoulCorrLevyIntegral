@@ -1,4 +1,5 @@
 #include "CoulCorrCalc.h"
+#include <boost/math/quadrature/gauss_kronrod.hpp>
 
 // Constructor
 CoulCorrCalc::CoulCorrCalc()
@@ -6,7 +7,6 @@ CoulCorrCalc::CoulCorrCalc()
   HypCalculatorInstance = new HypCalculator();
   NMaxIter = 3;
   epsTolerance = 1e-2;
-  NFuncEvals = 0;
 }
 
 // Destructor
@@ -32,6 +32,7 @@ double CoulCorrCalc::f_s(const double q, const double Rcc, const double alpha)
 // Exact result for A_1,s
 double CoulCorrCalc::A_1_s_wo_int(const double x, const double k, const double Rcc, const double alpha, const double eta)
 {
+  NFuncCalls++; //This is just for monitoring, can be commented out
   double fs1_1 = (f_s(2.*k*x, Rcc, alpha) - f_s(0., Rcc, alpha)) / x;
   double fs1_2 = (f_s(2.*k/x, Rcc, alpha) - f_s(0., Rcc, alpha)) / x;
   complex<double> func_1 = pow(1. + 1./x, 2.*eta*I) * HypCalculatorInstance->F1_F2_F3(1. / (x*x));
@@ -42,6 +43,7 @@ double CoulCorrCalc::A_1_s_wo_int(const double x, const double k, const double R
 // Exact result for A_2,s
 double CoulCorrCalc::A_2_s_wo_int(const double x, const double k, const double Rcc, const double alpha, const double eta)
 {
+  NFuncCalls++; //This is just for monitoring, can be commented out
   double func_1 = sin(eta * log((1. + x)/(1. - x))) / (x * (x + 1.));
   double func_2 = x * x * exp(M_PI * eta) * (f_s(2. * k * x, Rcc, alpha) - f_s(2. * k, Rcc, alpha)) / (1. - x);
   double func_3 = (f_s(2. * k / x, Rcc, alpha) - f_s(2. * k, Rcc, alpha)) / (1. - x);
@@ -80,7 +82,7 @@ double CoulCorrCalc::A2_int(const double k, const double Rcc, const double alpha
   double upperlim = 1;
   auto func = bind(&CoulCorrCalc::A_2_s_wo_int, this, placeholders::_1, k, Rcc, alpha, eta);
 
-  double result =  boost::math::quadrature::gauss_kronrod<double, NGaussKronrod>::integrate(func, lowerlim, upperlim, NMaxIter, epsTolerance, &error);
+  double result = boost::math::quadrature::gauss_kronrod<double, NGaussKronrod>::integrate(func, lowerlim, upperlim, NMaxIter, epsTolerance, &error);
   return result;
 }
 
@@ -93,6 +95,7 @@ const double CoulCorrCalc::calc_eta(const double k, const double Mc2)
 // Correlation function, for lambda=1, with Coulomb
 double CoulCorrCalc::FullCorrFuncValue(const double alpha, const double R, const double Q)
 {
+  NFuncCalls = 0;
   double k = Q*500; //k = Q/2, but in MeV here
   double Rcc = R*pow(2.,1./alpha);
   double eta = calc_eta(k, Mass_Pi*1000.);
@@ -119,6 +122,7 @@ double CoulCorrCalc::PureCorrFuncValueLambda(const double alpha, const double R,
 // Coulomb correction, without the lambda value
 double CoulCorrCalc::CoulCorrValue(const double alpha, const double R, const double Q)
 {
+  NFuncCalls = 0;
   double k = Q*500; //k = Q/2, but in MeV here
   double Rcc = R*pow(2.,1./alpha);
   double eta = calc_eta(k, Mass_Pi*1000.);

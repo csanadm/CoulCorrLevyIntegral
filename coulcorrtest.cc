@@ -1,4 +1,7 @@
+#include <iostream>
 #include "CoulCorrCalc.h"
+
+using namespace std;
 
 int main()
 {

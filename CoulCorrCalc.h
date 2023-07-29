@@ -7,7 +7,6 @@
 //#include <cmath>
 //#include <limits>
 #include "basics.h"
-#include <boost/math/quadrature/gauss_kronrod.hpp>
 #include "HypCalculator.h"
 #include "CoulCorrCalc.h"
 
@@ -31,6 +30,9 @@ class CoulCorrCalc
   
   // Set integration properties
   void SetIntegrationProperties(int NMaxIter, double epsTolerance);
+  
+  // Get number of function calls in last calculation
+  int GetNFuncCalls() { return NFuncCalls; }
 
 private:
   // Private functions, explained in the source code
@@ -51,6 +53,7 @@ private:
   static const unsigned int NGaussKronrod = 15; // this has to be constant, to be set at compile time
   unsigned int NMaxIter;
   double epsTolerance;
+  int NFuncCalls;
 };
 
 #endif // _CoulCorrCalc_h_
