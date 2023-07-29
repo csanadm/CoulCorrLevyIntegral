@@ -10,6 +10,8 @@ This package contains a calculation for quantum-statistical correlation function
 - [**Makefile**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/Makefile): Using `make all`, it will create an executable
 - [**coulcorrtest.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc): An example code for testing the library
 - [**coulcorrtestplot.py**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtestplot.py): A python plotter for plotting the test result
+- [**coulcorrtest.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.cc): An example code for investigating the integral accuracy
+- [**coulcorrtestplot.py**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.py): A python plotter for the integral testing
 - [**CoulCorrCalc.cpp**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/CoulCorrCalc.cpp): The main calculator class, containing the formulas and the final integral (via the Gauss-Kronrod method of `boost`)
 - [**CoulCorrCalc.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/CoulCorrCalc.h): Heacer file for the `CoulCorrCalc` class
 - [**HypCalculator.cpp**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/HypCalculator.cpp): The functions in this class calculate the hypergeometric function 2F1.
@@ -22,6 +24,10 @@ This package contains a calculation for quantum-statistical correlation function
 The below example has been created using the output from [coulcorrtest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc)
 
 ![coulcorrtest](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/8ff72bda-34ae-4d04-bdf0-5486dcbdf6f7)
+
+The below example has been created using the output from [integraltest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.cc)
+
+![integraltest](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/cef69493-1dc3-4854-af5d-5304e77c8e8c)
 
 
 ## Publications
