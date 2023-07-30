@@ -22,7 +22,7 @@ if(len(sys.argv)>1 and os.path.isfile(sys.argv[1])): datafile=sys.argv[1]
 column_names = ["NMaxIter", "LogTolerance", "Integral", "NFuncCalls"]
 df = pd.read_csv(datafile, sep="\t", header=None, names=column_names)
 
-# Shift only the values in "NMaxIter" column by 0.5
+# Shift the values in "NMaxIter" and "LogTolerance" column by 0.5, to have centered bins
 df["LogTolerance"] -= 0.5
 df["NMaxIter"] -= 0.5
 
