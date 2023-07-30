@@ -27,8 +27,8 @@ The below example has been created using the output from [coulcorrtest.cc](https
 
 The below examples has been created using the output from [integraltest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.cc)
 
-![integraltest Q200](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/87f6ae4a-3e94-4061-89be-525a8efdac5e)
-![integraltest Q040](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/eb5d8d56-0e60-4386-81ec-c1c4230cb9e5)
+![integraltest Q040](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/a2f7326c-c114-43bc-ba30-8ad82b7fa06f)
+![integraltest Q200](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/a30f36ba-e0b9-439b-a74d-1b700f2e1cff)
 
 ## Publications
 - To be listed
