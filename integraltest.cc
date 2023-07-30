@@ -8,10 +8,10 @@ int main()
   // Create an instance of the CoulCorrCalc class
   CoulCorrCalc *cccinstance = new CoulCorrCalc();
   // Declare parameter variables
-  double alpha = 0.9;
-  double R = 9.2;
+  double alpha = 1.4;
+  double R = 6.0;
   double lambda = 1.0;
-  double Q = 0.06;
+  double Q = 0.20;
   // Calculate correlation function with various integral settings
   for(int NMaxIter=1; NMaxIter<=12; NMaxIter++)
     for(double epsTolerance=1e-3; epsTolerance>1e-15; epsTolerance/=10)
