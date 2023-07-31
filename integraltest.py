@@ -10,10 +10,11 @@ import matplotlib.gridspec as gridspec
 
 fmt = lambda x, pos: '{:.6f}'.format(x)
 
-# Set font and font size
+# Set font and font size for entire plot
 plt.rcParams.update({
-    #'font.family': 'serif',  # Use Times New Roman font
-    'font.size': 14,         # Set the font size for all text in the plot
+    'font.family': 'arial',
+    #'font.weight': 'bold',
+    'font.size': 14,
 })
 
 # Load data from the file
@@ -54,6 +55,6 @@ plt.subplots_adjust(right=0.85)  # You can adjust the value (0.85 in this case) 
 
 plt.tight_layout()
 
-pngfile = "integraltest.png"
+pngfile = "integraltest.pdf"
 if(len(sys.argv)>2): pngfile=sys.argv[2]
 plt.savefig(pngfile)
