@@ -8,7 +8,6 @@ HypCalculator::HypCalculator()
 
   complex<double> complex_zero(0., 0.);
 
-  is_abc_initialized = false;
   is_eta_initialized = false;
 
   sinabc      = complex_zero;
@@ -35,7 +34,6 @@ HypCalculator::HypCalculator()
 
 HypCalculator::HypCalculator(const HypCalculator& myHypCalculator)
 {
-  is_abc_initialized = myHypCalculator.is_abc_initialized;
   is_eta_initialized = myHypCalculator.is_eta_initialized;
 }
 
@@ -74,9 +72,14 @@ complex<double> HypCalculator::Gauss_2F1_1mZ_noint(const complex<double> a, cons
   return result;
 }
 
-void HypCalculator::initialize_abc(const complex<double> a, const complex<double> b, const complex<double> c)
+void HypCalculator::initialize_eta(const double _eta)
 {
-  is_abc_initialized = true;
+  eta = _eta;
+  
+  complex<double> a(0., eta);
+  complex<double> b(1., eta);
+  complex<double> c(1., 0.);
+  
   sinabc     = sin(M_PI * (c-a-b));  
   sinab      = sin(M_PI * (a-b));  
   Gamma_c    = Gamma(c);
@@ -89,12 +92,7 @@ void HypCalculator::initialize_abc(const complex<double> a, const complex<double
   A = a;
   B = b;
   C = c;
-}
-
-void HypCalculator::initialize_eta(const double _eta)
-{
-  is_eta_initialized = true;
-  eta = _eta;
+  
   if(eta == 0.)
   {
     pieta_cth_pieta = 1.;
@@ -105,18 +103,21 @@ void HypCalculator::initialize_eta(const double _eta)
     pieta_cth_pieta = M_PI * eta / tanh(M_PI * eta);
     sinhpieta_pieta = sinh(M_PI * eta) / (M_PI * eta);
   }
+  
   complex<double> s0(2. * eta * euler_gamma - eta , -1. * pieta_cth_pieta);
   tilde_s0eta = s0;
   complex<double> ieta1(1., eta);
   tilde_s0eta += 2. * eta * digamma(ieta1);
   tilde_nu0 = -1. * eta;
+  
+  is_eta_initialized = true;
 }
 
 
 complex<double> HypCalculator::Gauss_2F1_series0(const double z)
 {
   complex<double> result(-9999., 0);
-  if(is_abc_initialized)
+  if(is_eta_initialized)
   {
     if(abs(z) < 0.9999)
     {
@@ -137,13 +138,13 @@ complex<double> HypCalculator::Gauss_2F1_series0(const double z)
 complex<double> HypCalculator::Gauss_2F1_1mZ_noint(const double z)
 {
   complex<double> result(-9999., 0);
-  if(is_abc_initialized)
+  if(is_eta_initialized)
   {
     if(abs(1. - z) < 0.9999)
     {
       if(abs(sinabc) > EPSILON_ABC)
         result = M_PI / sinabc * Gamma_c * ( Gauss_2F1_series0(A, B, A+B+1.-C, 1.-z) / Gamma_ab1c / Gamma_ca / Gamma_cb
-                                             - Gauss_2F1_series0(C-A, C-B, C+1.-A-B, 1.-z) / Gamma_a / Gamma_b / Gamma_c1ab / pow(1.-z, A+B-C));
+                                            -Gauss_2F1_series0(C-A, C-B, C+1.-A-B, 1.-z) / Gamma_a / Gamma_b / Gamma_c1ab / pow(1.-z, A+B-C));
     }
   }
   return result;
@@ -152,14 +153,14 @@ complex<double> HypCalculator::Gauss_2F1_1mZ_noint(const double z)
 complex<double> HypCalculator::Gauss_2F1_1perZ_noint(const double z)
 {
   complex<double> result(-9999., 0);
-  if(is_abc_initialized)
+  if(is_eta_initialized)
   {
     if(abs(1./z) < 0.9999)
     {
       if(abs(sinab) > EPSILON_ABC)
       {
-        result = M_PI / sinab * ( Gauss_2F1_series0(B + 1. -C, B, B + 1. - A, 1./z ) / pow(-z, B) / Gamma_a / Gamma_cb - 
-                                                         Gauss_2F1_series0(A + 1. -C, A, A + 1. - B, 1./z) / pow(-z, A) / Gamma_b / Gamma_ca);
+        result = M_PI / sinab * ( Gauss_2F1_series0(B + 1. -C, B, B + 1. - A, 1./z) / pow(-z, B) / Gamma_a / Gamma_cb - 
+                                  Gauss_2F1_series0(A + 1. -C, A, A + 1. - B, 1./z) / pow(-z, A) / Gamma_b / Gamma_ca);
       }
       else
         ;
@@ -194,7 +195,6 @@ complex<double> HypCalculator::Gauss_2F1_c_1(const double z)
   }
   return result;
 }
-
 
 complex<double> HypCalculator::F1_F2_F3(const double x)
 {
