@@ -53,10 +53,6 @@ double CoulCorrCalc::A_2_s_wo_int(const double x, const double k, const double R
 // The A1 numerical integral, with boost::math::quadrature::gauss_kronrod
 double CoulCorrCalc::A1_int(const double k, const double Rcc, const double alpha, const double eta)
 {
-  complex<double> a(0., eta);
-  complex<double> b(1., eta);
-  complex<double> c(1., 0.);
-  HypCalculatorInstance->initialize_abc(a, b, c);
   HypCalculatorInstance->initialize_eta(eta);
 
   double error = 0;
@@ -71,10 +67,6 @@ double CoulCorrCalc::A1_int(const double k, const double Rcc, const double alpha
 // The A2 numerical integral, with boost::math::quadrature::gauss_kronrod
 double CoulCorrCalc::A2_int(const double k, const double Rcc, const double alpha, const double eta)
 {
-  complex<double> a(0., eta);
-  complex<double> b(1., eta);
-  complex<double> c(1., 0.);
-  HypCalculatorInstance->initialize_abc(a, b, c);
   HypCalculatorInstance->initialize_eta(eta);
 
   double error = 0;
