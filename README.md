@@ -3,7 +3,7 @@
  Bose-Einstein correlation function integral calculation based on a Lévy source, incorporating the Coulomb final-state interaction. Most of the integrals can be performed analytically, only one, very well behaving integral remains, that is performed numerically.
 
 ## Description
-This package contains a calculation for quantum-statistical correlation functions, including Coulomb-correction, based on analytic results and a final numerical integration. For the calculation to work, the `boost` library is needed, although the numerical integral can be programmed by the user as well.
+This package contains a calculation for quantum-statistical correlation functions, including Coulomb-correction, based on analytic results and a final numerical integration. For the calculation to work, the `boost` library is needed, although the numerical integral can be programmed by the user as well. One plotting code and the fit test requires `ROOT` (latter also `Minuit2`), and several `python` libraries are required for the `python` plotters as well.
 
 ## File content
 
@@ -22,13 +22,13 @@ This package contains a calculation for quantum-statistical correlation function
 
 ### Testing of the libraries
 - [**coulcorrtest.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc): An example code for testing the library
-- [**coulcorrtestplot.py**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtestplot.py): A python plotter for the test result
-- [**fitexample.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/fitexample.cc): An example Minuit2 fit code, fitting some "fake" data
+- [**coulcorrtestplot.py**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtestplot.py): A `python` plotter for the test result
+- [**fitexample.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/fitexample.cc): An example `Minuit2` fit code, fitting the "fake" data provided in [`fakedata.txt`](https://github.com/csanadm/CoulCorrLevyIntegral/blob/main/Cqdata.txt)
 
 ### Testing the precision of the Gauss-Kronrod integral
 - [**integraltest.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.cc): Calculation of the integral with various precision settings
-- [**integraltest.py**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.py): A python plotter for the result of `integraltest.cc`
-- [**integraltest.C**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.C): A ROOT plotter for the result of `integraltest.cc`
+- [**integraltest.py**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.py): A `python` plotter for the result of `integraltest.cc`
+- [**integraltest.C**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.C): A `ROOT` plotter for the result of `integraltest.cc`
 
 ## Example results
 The below example has been created using the output from [coulcorrtest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc)
