@@ -81,11 +81,11 @@ int main()
 
   min.SetFunction(f);
 
-  // Set the free variables to be minimized!
-  min.SetVariable(0,"N",     1  ,0.01);
-  min.SetVariable(1,"lambda",0.6,0.01);
-  min.SetVariable(2,"R",     5  ,0.01);
-  min.SetVariable(3,"alpha", 1  ,0.01);
+  // Set the free variables to be minimized - start from completely out of context values to test fit accuracy
+  min.SetVariable(0,"N",     0.95,0.01);
+  min.SetVariable(1,"lambda",0.20,0.01);
+  min.SetVariable(2,"R",     9.20,0.01);
+  min.SetVariable(3,"alpha", 1.70,0.01);
 
   // min.SetFixedVariable(0,"x0",91);
 
