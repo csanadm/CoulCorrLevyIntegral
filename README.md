@@ -23,8 +23,6 @@ This package contains a calculation for quantum-statistical correlation function
 ### Testing of the libraries
 - [**coulcorrtest.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc): An example code for testing the library
 - [**coulcorrtestplot.py**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtestplot.py): A python plotter for the test result
-- [**integraltest.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.cc): An example code for investigating the integral accuracy
-- [**integraltest.py**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.py): A python plotter for the integral testing
 
 ### Testing the precision of the Gauss-Kronrod integral
 - [**integraltest.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.cc): Calculation of the integral with various precision settings
