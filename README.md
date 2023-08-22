@@ -41,4 +41,4 @@ The below examples has been created using the output from [integraltest.cc](http
 ![integraltest Q200](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/b6cb5c80-b3d2-4925-8336-57806f08608c)
 
 ## Publications
-- To be listed
+- Márton Nagy, Aletta Purzsa, Máté Csanád, Dániel Kincses, A novel method for calculating Bose-Einstein correlation functions with Coulomb final-state interaction (2023) [arXiv:2308.10745](https://arxiv.org/abs/2308.10745)
