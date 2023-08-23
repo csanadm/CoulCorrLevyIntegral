@@ -41,28 +41,25 @@ The below examples has been created using the output from [integraltest.cc](http
 ![integraltest Q200](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/b6cb5c80-b3d2-4925-8336-57806f08608c)
 
 The fit example code [`fitexample.cc`](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/fitexample.cc), using the "fake" data [`Cqdata.txt`](https://github.com/csanadm/CoulCorrLevyIntegral/blob/main/Cqdata.txt) generates the following output:
-`Minuit2Minimizer : Valid minimum - status = 0`
-`FVAL  = 163.628528208775037`
-`Edm   = 2.31624412029060214e-07`
-`Nfcn  = 239`
-`N         = 0.999426     +/-  0.0016909`
-`lambda    = 0.801399     +/-  0.027961`
-`R         = 5.3208       +/-  0.159243`
-`alpha     = 1.18897      +/-  0.0435182`
-`Probability: 163.629/191->0.924927`
-`Parameters:`
-`par0=0.999426+-0.00169113`
-`par1=0.801399+-0.0279781`
-`par2=5.3208+-0.15935`
-`par3=1.18897+-0.0435445`
-`Fit status:`
-`Fit converged, full accurate cov. matrix`
-`(fitstatus=0,covstatus=3)`
-`Minos errors:`
-`err0: +0.00166718 -0.00171808`
-`err1: +0.0292056 -0.0268804`
-`err2: +0.167903 -0.151789`
-`err3: +0.0438573 -0.0432895`
+
+`Minuit2Minimizer : Valid minimum - status = 0`<br>
+`FVAL  = 163.628528208775037`<br>
+`Edm   = 2.31624412029060214e-07`<br>
+`Nfcn  = 239`<br>
+`N         = 0.999426     +/-  0.0016909`<br>
+`lambda    = 0.801399     +/-  0.027961`<br>
+`R         = 5.3208       +/-  0.159243`<br>
+`alpha     = 1.18897      +/-  0.0435182`<br>
+`Probability: 163.629/191->0.924927`<br>
+`Fit status:`<br>
+`Fit converged, full accurate cov. matrix`<br>
+`(fitstatus=0,covstatus=3)`<br>
+`Minos errors:`<br>
+`err0: +0.00166718 -0.00171808`<br>
+`err1: +0.0292056 -0.0268804`<br>
+`err2: +0.167903 -0.151789`<br>
+`err3: +0.0438573 -0.0432895`<br>
+
 The fit output shall be compared to the input parameters of N=1, alpha=1.2, R=5.3 fm, lambda=0.8.
 
 ## Publications
