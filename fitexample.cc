@@ -12,6 +12,7 @@ CoulCorrCalc *cccinstance;
 TGraphErrors* gr;
 
 double Qmin;
+double Qmax;
 const int NPARS = 4;
 int NDF;
 
@@ -64,10 +65,15 @@ double MyChi2(const double *par)
 
 int main()
 {
+  // Initialize Coulomb Fourier calculation instance
   cccinstance = new CoulCorrCalc();
   
+  // Initialize TGraphErrors instance by loading some data into it
   gr = new TGraphErrors("Cqdata.txt","%lg %lg %lg");
-  Qmin = 0.017;
+  
+  // Setting the fit range
+  Qmin = 0.005;
+  Qmax = 0.500;
 
   // Choose method upon creation between:
   // kMigrad, kSimplex, kCombined, kScan, kFumili
