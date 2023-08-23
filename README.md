@@ -23,7 +23,7 @@ This package contains a calculation for quantum-statistical correlation function
 ### Testing of the libraries
 - [**coulcorrtest.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc): An example code for testing the library
 - [**coulcorrtestplot.py**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtestplot.py): A `python` plotter for the test result
-- [**fitexample.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/fitexample.cc): An example `Minuit2` fit code, fitting the "fake" data provided in [`Cqdata.txt`](https://github.com/csanadm/CoulCorrLevyIntegral/blob/main/Cqdata.txt)
+- [**fitexample.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/fitexample.cc): An example `Minuit2` fit code, fitting the "fake" data provided in [`Cqdata.txt`](https://github.com/csanadm/CoulCorrLevyIntegral/blob/main/Cqdata.txt) (which was generated with [`coulcorrtest.cc`](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc), with the parameters alpha=1.2, R=5.3 fm, lambda=0.8)
 
 ### Testing the precision of the Gauss-Kronrod integral
 - [**integraltest.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.cc): Calculation of the integral with various precision settings
@@ -39,6 +39,33 @@ The below examples has been created using the output from [integraltest.cc](http
 
 ![integraltest Q040](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/d3362a56-d303-4187-b83c-61817ec2df94)
 ![integraltest Q200](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/b6cb5c80-b3d2-4925-8336-57806f08608c)
+
+The fit example code [`fitexample.cc`](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/fitexample.cc), using the "fake" data [`Cqdata.txt`](https://github.com/csanadm/CoulCorrLevyIntegral/blob/main/Cqdata.txt) generates the following output:
+`
+Minuit2Minimizer : Valid minimum - status = 0
+FVAL  = 163.628528208775037
+Edm   = 2.31624412029060214e-07
+Nfcn  = 239
+N         = 0.999426     +/-  0.0016909
+lambda    = 0.801399     +/-  0.027961
+R         = 5.3208       +/-  0.159243
+alpha     = 1.18897      +/-  0.0435182
+Probability: 163.629/191->0.924927
+Parameters:
+par0=0.999426+-0.00169113
+par1=0.801399+-0.0279781
+par2=5.3208+-0.15935
+par3=1.18897+-0.0435445
+Fit status:
+Fit converged, full accurate cov. matrix
+(fitstatus=0,covstatus=3)
+Minos errors:
+err0: +0.00166718 -0.00171808
+err1: +0.0292056 -0.0268804
+err2: +0.167903 -0.151789
+err3: +0.0438573 -0.0432895
+`
+The fit output shall be compared to the input parameters of N=1, alpha=1.2, R=5.3 fm, lambda=0.8.
 
 ## Publications
 - Márton Nagy, Aletta Purzsa, Máté Csanád, Dániel Kincses, A novel method for calculating Bose-Einstein correlation functions with Coulomb final-state interaction (2023) [arXiv:2308.10745](https://arxiv.org/abs/2308.10745)
