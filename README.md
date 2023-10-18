@@ -63,4 +63,4 @@ The fit example code [`fitexample.cc`](https://github.com/csanadm/CoulCorrLevyIn
 The fit output shall be compared to the input parameters of N=1, alpha=1.2, R=5.3 fm, lambda=0.8.
 
 ## Publications
-- Márton Nagy, Aletta Purzsa, Máté Csanád, Dániel Kincses, <i>A novel method for calculating Bose-Einstein correlation functions with Coulomb final-state interaction</i> (2023) [arXiv:2308.10745](https://arxiv.org/abs/2308.10745)
+- Márton Nagy, Aletta Purzsa, Máté Csanád, Dániel Kincses, <i>A novel method for calculating Bose-Einstein correlation functions with Coulomb final-state interaction</i>, Eur. Phys. J. C (2023) [arXiv:2308.10745](https://arxiv.org/abs/2308.10745)
