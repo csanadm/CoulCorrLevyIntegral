@@ -35,8 +35,8 @@ double CoulCorrCalc::A_1_s_wo_int(const double x, const double k, const double R
   NFuncCalls++; //This is just for monitoring, can be commented out
   double fs1_1 = (f_s(2.*k*x, Rcc, alpha) - f_s(0., Rcc, alpha)) / x;
   double fs1_2 = (f_s(2.*k/x, Rcc, alpha) - f_s(0., Rcc, alpha)) / x;
-  complex<double> func_1 = pow(1. + 1./x, 2.*eta*I) * HypCalculatorInstance->F1_F2_F3(1. / (x*x));
-  complex<double> func_2 = pow(1. + x, 2.*eta*I) *  HypCalculatorInstance->F1_F2_F3(x*x);
+  complex<double> func_1 = pow(1. + 1./x, 2.*eta*I) * HypCalculatorInstance->Fplus(1. / (x*x));
+  complex<double> func_2 = pow(1. + x, 2.*eta*I) *  HypCalculatorInstance->Fplus(x*x);
   return -2./eta * imag(fs1_1 * func_1 + fs1_2 * func_2);
 }
 
