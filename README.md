@@ -42,12 +42,12 @@ The below example has been created using the output from [coulcorrtest.cc](coulc
 
 ![coulcorrtest](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/8ff72bda-34ae-4d04-bdf0-5486dcbdf6f7)
 
-The below examples has been created using the output from [integraltest.cc](integraltest.cc)
+The below examples has been created using the output from [integraltest.cc](integraltest.cc) via [integraltest.py](integraltest.py)
 
 ![integraltest Q040](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/d3362a56-d303-4187-b83c-61817ec2df94)
 ![integraltest Q200](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/b6cb5c80-b3d2-4925-8336-57806f08608c)
 
-The fit example code [`fitexample.cc`](fitexample.cc), using the "fake" data [`Cqdata.txt`](https://github.com/csanadm/CoulCorrLevyIntegral/blob/main/Cqdata.txt) generates the following output:
+The fit example code [`fitexample.cc`](fitexample.cc), using the "fake" data [`Cqdata.txt`](Cqdata.txt) generates the following output:
 
 `Minuit2Minimizer : Valid minimum - status = 0`<br>
 `FVAL  = 163.628528208775037`<br>
