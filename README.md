@@ -8,27 +8,27 @@ This package contains a calculation for quantum-statistical correlation function
 ## File content
 
 ### Basics
-- [**README.md**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/README.md): This README file
-- [**Makefile**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/Makefile): Using `make all`, it will create all executables (which will have the suffix `.exe`), and requires the existence of a `deps` directory (to store the dependencies)
+- [**README.md**](README.md): This README file
+- [**Makefile**](Makefile): Using `make all`, it will create all executables (which will have the suffix `.exe`), and requires the existence of a `deps` directory (to store the dependencies)
 
 ### Libraries
 - [**CoulCorrCalc.cpp**](CoulCorrCalc.cpp): The main calculator class, containing the formulas and the final integral (via the Gauss-Kronrod method of `boost`)
-- [**CoulCorrCalc.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/CoulCorrCalc.h): Header file for the `CoulCorrCalc` class
-- [**HypCalculator.cpp**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/HypCalculator.cpp): The functions in this class calculate the hypergeometric function 2F1.
-- [**HypCalculator.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/HypCalculator.h): Header file for the `HypCalculator` class
-- [**functions.cpp**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/functions.cpp): Auxiliary functions, such as the Gamma function
-- [**functions.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/functions.h): Header file for `functions.cpp`
-- [**basics.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/basics.h): Basic constants, needed for all calculations
+- [**CoulCorrCalc.h**](CoulCorrCalc.h): Header file for the `CoulCorrCalc` class
+- [**HypCalculator.cpp**](HypCalculator.cpp): The functions in this class calculate the hypergeometric function 2F1.
+- [**HypCalculator.h**](HypCalculator.h): Header file for the `HypCalculator` class
+- [**functions.cpp**](functions.cpp): Auxiliary functions, such as the Gamma function
+- [**functions.h**](functions.h): Header file for `functions.cpp`
+- [**basics.h**](basics.h): Basic constants, needed for all calculations
 
 ### Testing of the libraries
-- [**coulcorrtest.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc): An example code for testing the library
-- [**coulcorrtestplot.py**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtestplot.py): A `python` plotter for the test result
-- [**fitexample.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/fitexample.cc): An example `Minuit2` fit code, fitting the "fake" data provided in [`Cqdata.txt`](https://github.com/csanadm/CoulCorrLevyIntegral/blob/main/Cqdata.txt) (which was generated with [`coulcorrtest.cc`](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc), with the parameters alpha=1.2, R=5.3 fm, lambda=0.8)
+- [**coulcorrtest.cc**](coulcorrtest.cc): An example code for testing the library
+- [**coulcorrtestplot.py**](coulcorrtestplot.py): A `python` plotter for the test result
+- [**fitexample.cc**](fitexample.cc): An example `Minuit2` fit code, fitting the "fake" data provided in [`Cqdata.txt`](Cqdata.txt) (which was generated with [`coulcorrtest.cc`](coulcorrtest.cc), with the parameters alpha=1.2, R=5.3 fm, lambda=0.8)
 
 ### Testing the precision of the Gauss-Kronrod integral
-- [**integraltest.cc**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.cc): Calculation of the integral with various precision settings
-- [**integraltest.py**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.py): A `python` plotter for the result of `integraltest.cc`
-- [**integraltest.C**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.C): A `ROOT` plotter for the result of `integraltest.cc`
+- [**integraltest.cc**](integraltest.cc): Calculation of the integral with various precision settings
+- [**integraltest.py**](integraltest.py): A `python` plotter for the result of `integraltest.cc`
+- [**integraltest.C**](integraltest.C): A `ROOT` plotter for the result of `integraltest.cc`
 
 ## Running the codes
 - A `deps` directory should be created, this is where `make` stores the dependencies.
@@ -38,16 +38,16 @@ This package contains a calculation for quantum-statistical correlation function
 - The code `integraltest.cc` should also be run as  `./integraltest.exe > integraltest.out`, which then can be plotted as `python integraltest.py`, or via ROOT as `root.exe -b -q integraltest.C` (where the variable `const char* inputfile` has the name of the file from which data are to be plotted).
 
 ## Example results
-The below example has been created using the output from [coulcorrtest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc) via [coulcorrtestplot.py](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtestplot.py)
+The below example has been created using the output from [coulcorrtest.cc](coulcorrtest.cc) via [coulcorrtestplot.py](coulcorrtestplot.py)
 
 ![coulcorrtest](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/8ff72bda-34ae-4d04-bdf0-5486dcbdf6f7)
 
-The below examples has been created using the output from [integraltest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.cc)
+The below examples has been created using the output from [integraltest.cc](integraltest.cc)
 
 ![integraltest Q040](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/d3362a56-d303-4187-b83c-61817ec2df94)
 ![integraltest Q200](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/b6cb5c80-b3d2-4925-8336-57806f08608c)
 
-The fit example code [`fitexample.cc`](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/fitexample.cc), using the "fake" data [`Cqdata.txt`](https://github.com/csanadm/CoulCorrLevyIntegral/blob/main/Cqdata.txt) generates the following output:
+The fit example code [`fitexample.cc`](fitexample.cc), using the "fake" data [`Cqdata.txt`](https://github.com/csanadm/CoulCorrLevyIntegral/blob/main/Cqdata.txt) generates the following output:
 
 `Minuit2Minimizer : Valid minimum - status = 0`<br>
 `FVAL  = 163.628528208775037`<br>
