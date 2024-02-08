@@ -38,7 +38,7 @@ This package contains a calculation for quantum-statistical correlation function
 - The code `integraltest.cc` should also be run as  `./integraltest.exe > integraltest.out`, which then can be plotted as `python integraltest.py`, or via ROOT as `root.exe -b -q integraltest.C` (where the variable `const char* inputfile` has the name of the file from which data are to be plotted).
 
 ## Example results
-The below example has been created using the output from [coulcorrtest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc)
+The below example has been created using the output from [coulcorrtest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc) via [coulcorrtestplot.py](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtestplot.py)
 
 ![coulcorrtest](https://github.com/csanadm/CoulCorrLevyIntegral/assets/38218165/8ff72bda-34ae-4d04-bdf0-5486dcbdf6f7)
 
