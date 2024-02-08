@@ -9,7 +9,7 @@ This package contains a calculation for quantum-statistical correlation function
 
 ### Basics
 - [**README.md**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/README.md): This README file
-- [**Makefile**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/Makefile): Using `make all`, it will create an executable
+- [**Makefile**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/Makefile): Using `make all`, it will create all executables (which will have the suffix `.exe`)
 
 ### Libraries
 - [**CoulCorrCalc.cpp**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/CoulCorrCalc.cpp): The main calculator class, containing the formulas and the final integral (via the Gauss-Kronrod method of `boost`)
@@ -33,9 +33,9 @@ This package contains a calculation for quantum-statistical correlation function
 ## Running the codes
 - A `deps` directory should be created, this is where `make` stores the dependencies.
 - A `make all` command creates all executables (they will have the `.exe` suffix), or a specific `make <codename>.exe` command produces just the given executable (here `<codename>` can be for example `coulcorrtest`, `fitexample` or `integraltest`).
-- One shall run `coulcorrtest.exe > coulcorrtest.out` and then `python coulcorrtestplot.py` to produce a test plot (can edit `coulcorrtest.cc` to make the plot for different parameters).
-- The code `fitexample.cc` is run as `coulcorrtest.exe`, and it produces a fit (and writes out the corresponding messages) to `Cqdata.txt`, as mentioned above.
-- The code `integraltest.cc` should also be run as  `integraltest.exe > integraltest.out`, which then can be plotted as `python integraltest.py`, or via ROOT as `root.exe -b -q integraltest.C` (where the variable `const char* inputfile` has the name of the file from which data are to be plotted).
+- One shall run `./coulcorrtest.exe > coulcorrtest.out` and then `python coulcorrtestplot.py` to produce a test plot (can edit `coulcorrtest.cc` to make the plot for different parameters).
+- The code `fitexample.cc` is run as `./coulcorrtest.exe`, and it produces a fit (and writes out the corresponding messages) to `Cqdata.txt`, as mentioned above.
+- The code `integraltest.cc` should also be run as  `./integraltest.exe > integraltest.out`, which then can be plotted as `python integraltest.py`, or via ROOT as `root.exe -b -q integraltest.C` (where the variable `const char* inputfile` has the name of the file from which data are to be plotted).
 
 ## Example results
 The below example has been created using the output from [coulcorrtest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc)
