@@ -30,6 +30,13 @@ This package contains a calculation for quantum-statistical correlation function
 - [**integraltest.py**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.py): A `python` plotter for the result of `integraltest.cc`
 - [**integraltest.C**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/integraltest.C): A `ROOT` plotter for the result of `integraltest.cc`
 
+## Running the codes
+- A `deps` directory should be created, this is where `make` stores the dependencies.
+- A `make all` command creates all executables (they will have the `.exe` suffix), or a specific `make <codename>.exe` command produces just the given executable (here `<codename>` can be for example `coulcorrtest`, `fitexample` or `integraltest`).
+- One shall run `coulcorrtest.exe > coulcorrtest.out` and then `python coulcorrtestplot.py` to produce a test plot (can edit `coulcorrtest.cc` to make the plot for different parameters).
+- The code `fitexample.cc` is run as `coulcorrtest.exe`, and it produces a fit (and writes out the corresponding messages) to `Cqdata.txt`, as mentioned above.
+- The code `integraltest.cc` should also be run as  `integraltest.exe > integraltest.out`, which then can be plotted as `python integraltest.py`, or via ROOT as `root.exe -b -q integraltest.C` (where the variable `const char* inputfile` has the name of the file from which data are to be plotted).
+
 ## Example results
 The below example has been created using the output from [coulcorrtest.cc](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/coulcorrtest.cc)
 
