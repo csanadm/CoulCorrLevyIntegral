@@ -13,9 +13,9 @@ This package contains a calculation for quantum-statistical correlation function
 
 ### Libraries
 - [**CoulCorrCalc.cpp**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/CoulCorrCalc.cpp): The main calculator class, containing the formulas and the final integral (via the Gauss-Kronrod method of `boost`)
-- [**CoulCorrCalc.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/CoulCorrCalc.h): Heacer file for the `CoulCorrCalc` class
+- [**CoulCorrCalc.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/CoulCorrCalc.h): Header file for the `CoulCorrCalc` class
 - [**HypCalculator.cpp**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/HypCalculator.cpp): The functions in this class calculate the hypergeometric function 2F1.
-- [**HypCalculator.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/HypCalculator.h): Heacer file for the `HypCalculator` class
+- [**HypCalculator.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/HypCalculator.h): Header file for the `HypCalculator` class
 - [**functions.cpp**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/functions.cpp): Auxiliary functions, such as the Gamma function
 - [**functions.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/functions.h): Header file for `functions.cpp`
 - [**basics.h**](https://github.com/csanadm/CoulCorrLevyIntegral/blob/master/basics.h): Basic constants, needed for all calculations
