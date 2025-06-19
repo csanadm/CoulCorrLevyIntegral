@@ -68,6 +68,11 @@ The fit example code [`fitexample.cc`](fitexample.cc), using the "fake" data [`C
 `err2: +0.167903 -0.151789`<br>
 `err3: +0.0438573 -0.0432895`<br>
 
+The below plot compares two versions of calculating the correlation function in LCMS (when the Coulomb calculation is in PCMS)
+
+![kép](https://github.com/user-attachments/assets/f514f3ec-a260-4273-ba0d-6e02b361365d)
+
+
 The fit output shall be compared to the input parameters of N=1, alpha=1.2, R=5.3 fm, lambda=0.8.
 
 ## Publications
