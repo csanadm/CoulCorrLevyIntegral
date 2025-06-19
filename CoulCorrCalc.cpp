@@ -114,15 +114,8 @@ double CoulCorrCalc::PureCorrFuncValueLambda(const double alpha, const double R,
 // Coulomb correction, without the lambda value
 double CoulCorrCalc::CoulCorrValue(const double alpha, const double R, const double Q)
 {
-  NFuncCalls = 0;
-  double k = Q*500; //k = Q/2, but in MeV here
-  double Rcc = R*pow(2.,1./alpha);
-  double eta = calc_eta(k, Mass_Pi*1000.);
-  double Gamow = (2. * M_PI * eta) / (exp(2. * M_PI * eta) - 1.);
-  double A1 = A1_int(k, Rcc, alpha, eta);
-  double A2 = A2_int(k, Rcc, alpha, eta);
   double C0value = PureCorrFuncValueLambda(alpha, R, 1.0, Q);
-  double CCvalue = Gamow * (1. + f_s(2.*k, Rcc, alpha) + (eta / M_PI) * (A1 + A2));
+  double CCvalue = FullCorrFuncValue(alpha, R, Q);
   return CCvalue/C0value;
 }
 
