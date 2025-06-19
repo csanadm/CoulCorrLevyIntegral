@@ -7,6 +7,7 @@ CoulCorrCalc::CoulCorrCalc()
   HypCalculatorInstance = new HypCalculator();
   NMaxIter = 3;
   epsTolerance = 1e-2;
+  Mc2 = Mass_Pi*1000.;
 }
 
 // Destructor
@@ -78,8 +79,14 @@ double CoulCorrCalc::A2_int(const double k, const double Rcc, const double alpha
   return result;
 }
 
+// Set the particle mass, argument in GeV/c^2
+void CoulCorrCalc::SetParticleMass(const double mc2)
+{
+  Mc2 = mc2*1000; // Convert to MeV
+}
+
 // Calculating the Sommerfeld parameter eta
-const double CoulCorrCalc::calc_eta(const double k, const double Mc2)
+const double CoulCorrCalc::calc_eta(const double k)
 {
   return FINESTRUCTURE_CONSTANT * Mc2 * 0.5 / k;
 }
@@ -90,7 +97,7 @@ double CoulCorrCalc::FullCorrFuncValue(const double alpha, const double R, const
   NFuncCalls = 0;
   double k = Q*500; //k = Q/2, but in MeV here
   double Rcc = R*pow(2.,1./alpha);
-  double eta = calc_eta(k, Mass_Pi*1000.);
+  double eta = calc_eta(k);
   double Gamow = (2. * M_PI * eta) / (exp(2. * M_PI * eta) - 1.);
   double A1 = A1_int(k, Rcc, alpha, eta);
   double A2 = A2_int(k, Rcc, alpha, eta);
