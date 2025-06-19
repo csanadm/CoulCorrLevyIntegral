@@ -37,8 +37,12 @@ class CoulCorrCalc
   // Set the particle mass (the actual mass, not the reduced one), in GeV/c^2
   void SetParticleMass(const double mc2);
 
+  // Set betaT = KT/sqrt(mT^2+KT^2)
+  void SetBetaT(const double betat);
+
 private:
   // Private functions, explained in the source code
+  double f_s_y_integrand(const double y, const double q, const double RLCMS, const double alpha);
   double f_s(const double q, const double R, const double alpha);
   double A_1_s_wo_int(const double x, const double k, const double R, const double alpha, const double eta);
   double A_2_s_wo_int(const double x, const double k, const double R, const double alpha, const double eta);
