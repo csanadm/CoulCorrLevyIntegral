@@ -46,8 +46,9 @@ private:
   double A2_int(const double k, const double R, const double alpha, const double eta);
   const double calc_eta(const double k); // k: MeV/c
 
-  // Mass of the particle in MeV/c^2
-  double Mc2;
+  // Physical properties
+  double Mc2; // Mass of the particle in MeV/c^2
+  double betaT; // betaT between PCMS and LCMS
 
   // An instance of the hypergeometric 2F1 calculator
   HypCalculator* HypCalculatorInstance;
