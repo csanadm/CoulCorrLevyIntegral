@@ -67,13 +67,11 @@ The fit example code [`fitexample.cc`](fitexample.cc), using the "fake" data [`C
 `err1: +0.0292056 -0.0268804`<br>
 `err2: +0.167903 -0.151789`<br>
 `err3: +0.0438573 -0.0432895`<br>
-
-The below plot compares two versions of calculating the correlation function in LCMS (when the Coulomb calculation is in PCMS)
-
-![kép](https://github.com/user-attachments/assets/f514f3ec-a260-4273-ba0d-6e02b361365d)
-
-
 The fit output shall be compared to the input parameters of N=1, alpha=1.2, R=5.3 fm, lambda=0.8.
+
+The below test plot compares two versions of calculating the correlation function in LCMS (when the Coulomb calculation is in PCMS)
+
+<img src="https://github.com/user-attachments/assets/f514f3ec-a260-4273-ba0d-6e02b361365d" alt="" width="500">
 
 ## Publications
 - Márton Nagy, Aletta Purzsa, Máté Csanád, Dániel Kincses, <i>A novel method for calculating Bose-Einstein correlation functions with Coulomb final-state interaction</i>, Eur. Phys. J. C (2023) [arXiv:2308.10745](https://arxiv.org/abs/2308.10745)
