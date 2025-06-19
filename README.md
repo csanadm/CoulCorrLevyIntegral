@@ -24,6 +24,7 @@ This package contains a calculation for quantum-statistical correlation function
 - [**coulcorrtest.cc**](coulcorrtest.cc): An example code for testing the library
 - [**coulcorrtestplot.py**](coulcorrtestplot.py): A `python` plotter for the test result
 - [**fitexample.cc**](fitexample.cc): An example `Minuit2` fit code, fitting the "fake" data provided in [`Cqdata.txt`](Cqdata.txt) (which was generated with [`coulcorrtest.cc`](coulcorrtest.cc), with the parameters alpha=1.2, R=5.3 fm, lambda=0.8)
+- [**betattest.cc**](betattest.cc): Testing the betaT functionality
 
 ### Testing the precision of the Gauss-Kronrod integral
 - [**integraltest.cc**](integraltest.cc): Calculation of the integral with various precision settings
