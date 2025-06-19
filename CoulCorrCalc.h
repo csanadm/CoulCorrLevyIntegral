@@ -16,7 +16,7 @@ class CoulCorrCalc
   CoulCorrCalc();
   ~CoulCorrCalc();
   
-  // Correlation function, for lambda=1, with Coulomb
+  // Correlation function, for lambda=1, with Coulomb, Q in GeV/c, R in fm
   double FullCorrFuncValue(const double alpha, const double R, const double Q);
   
   // Correlation function, incorporating the lambda value, via the Bowler-Sinyikov formula
@@ -34,6 +34,9 @@ class CoulCorrCalc
   // Get number of function calls in last calculation
   int GetNFuncCalls() { return NFuncCalls; }
 
+  // Set the particle mass (the actual mass, not the reduced one), in GeV/c^2
+  void SetParticleMass(const double mc2);
+
 private:
   // Private functions, explained in the source code
   double f_s(const double q, const double R, const double alpha);
@@ -41,7 +44,10 @@ private:
   double A_2_s_wo_int(const double x, const double k, const double R, const double alpha, const double eta);
   double A1_int(const double k, const double R, const double alpha, const double eta);
   double A2_int(const double k, const double R, const double alpha, const double eta);
-  const double calc_eta(const double k, const double Mc2); // k: MeV/c, Mc2: MeV, Mc2 is the mass of the particle, not the reduced mass!!!
+  const double calc_eta(const double k); // k: MeV/c
+
+  // Mass of the particle in MeV/c^2
+  double Mc2;
 
   // An instance of the hypergeometric 2F1 calculator
   HypCalculator* HypCalculatorInstance;
