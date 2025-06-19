@@ -8,6 +8,7 @@ CoulCorrCalc::CoulCorrCalc()
   NMaxIter = 3;
   epsTolerance = 1e-2;
   Mc2 = Mass_Pi*1000.;
+  betaT = 0;
 }
 
 // Destructor
@@ -24,10 +25,26 @@ void CoulCorrCalc::SetIntegrationProperties(int _NMaxIter, double _epsTolerance)
   
 }
 
+// Integrand of the spherical averaging of f_s, with y=cos(theta), with Rcc in LCMS
+double CoulCorrCalc::f_s_y_integrand(const double y, const double q, const double RccLCMS, const double alpha)
+{
+  return exp(-0.5 * pow(fabs(q*RccLCMS / (HBARC*1000.)), alpha) * pow(1.+betaT*betaT/(1.-betaT*betaT)*y*y, alpha/2.));
+}
+
 // No-Coulomb auxiliary correlation function term, with the pair-radius Rcc
 double CoulCorrCalc::f_s(const double q, const double Rcc, const double alpha)
 {
-  return exp(-0.5 * pow(fabs(q*Rcc / (HBARC*1000.)), alpha));
+  if(betaT==0)
+    return exp(-0.5 * pow(fabs(q*Rcc / (HBARC*1000.)), alpha)); // Rcc is in PCMS, spherical symmetry assumed in PCMS
+  else
+  {
+    double error = 0.;
+    double lowerlim = -1.;
+    double upperlim = 1.;
+    auto func = bind(&CoulCorrCalc::f_s_y_integrand, this, placeholders::_1, q, Rcc, alpha); // Rcc is in LCMS, spherical symmetry assumed in LCMS
+    double result = 0.5*boost::math::quadrature::gauss_kronrod<double, NGaussKronrod>::integrate(func, lowerlim, upperlim, NMaxIter, epsTolerance, &error);
+    return result;
+  }
 }
 
 // Exact result for A_1,s
@@ -85,6 +102,12 @@ void CoulCorrCalc::SetParticleMass(const double mc2)
   Mc2 = mc2*1000; // Convert to MeV
 }
 
+// Set betaT
+void CoulCorrCalc::SetBetaT(const double betat)
+{
+  betaT = betat;
+}
+
 // Calculating the Sommerfeld parameter eta
 const double CoulCorrCalc::calc_eta(const double k)
 {
@@ -125,4 +148,3 @@ double CoulCorrCalc::CoulCorrValue(const double alpha, const double R, const dou
   double CCvalue = FullCorrFuncValue(alpha, R, Q);
   return CCvalue/C0value;
 }
-
