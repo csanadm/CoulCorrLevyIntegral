@@ -41,7 +41,8 @@ double CoulCorrCalc::f_s(const double q, const double Rcc, const double alpha)
     double error = 0.;
     double lowerlim = -1.;
     double upperlim = 1.;
-    auto func = bind(&CoulCorrCalc::f_s_y_integrand, this, placeholders::_1, q, Rcc, alpha); // Rcc is in LCMS, spherical symmetry assumed in LCMS
+    //auto func = bind(&CoulCorrCalc::f_s_y_integrand, this, placeholders::_1, q, Rcc, alpha); // Rcc is in LCMS, spherical symmetry assumed in LCMS
+    auto func = [this, q, Rcc, alpha](double y) { return f_s_y_integrand(y, q, Rcc, alpha); }; // Rcc is in LCMS, spherical symmetry assumed in LCMS
     double result = 0.5*boost::math::quadrature::gauss_kronrod<double, NGaussKronrod>::integrate(func, lowerlim, upperlim, NMaxIter, epsTolerance, &error);
     return result;
   }
@@ -76,7 +77,8 @@ double CoulCorrCalc::A1_int(const double k, const double Rcc, const double alpha
   double error = 0;
   double lowerlim = 0;
   double upperlim = 1;
-  auto func = bind(&CoulCorrCalc::A_1_s_wo_int, this, placeholders::_1, k, Rcc, alpha, eta);
+  //auto func = bind(&CoulCorrCalc::A_1_s_wo_int, this, placeholders::_1, k, Rcc, alpha, eta);
+  auto func = [this, k, Rcc, alpha, eta](double x) { return A_1_s_wo_int(x, k, Rcc, alpha, eta); };
 
   double result = boost::math::quadrature::gauss_kronrod<double, NGaussKronrod>::integrate(func, lowerlim, upperlim, NMaxIter, epsTolerance, &error);
   return result;
@@ -148,3 +150,4 @@ double CoulCorrCalc::CoulCorrValue(const double alpha, const double R, const dou
   double CCvalue = FullCorrFuncValue(alpha, R, Q);
   return CCvalue/C0value;
 }
+
