@@ -92,7 +92,8 @@ double CoulCorrCalc::A2_int(const double k, const double Rcc, const double alpha
   double error = 0;
   double lowerlim = 0;
   double upperlim = 1;
-  auto func = bind(&CoulCorrCalc::A_2_s_wo_int, this, placeholders::_1, k, Rcc, alpha, eta);
+  //auto func = bind(&CoulCorrCalc::A_2_s_wo_int, this, placeholders::_1, k, Rcc, alpha, eta);
+  auto func = [this, k, Rcc, alpha, eta](double x) { return A_2_s_wo_int(x, k, Rcc, alpha, eta); };
 
   double result = boost::math::quadrature::gauss_kronrod<double, NGaussKronrod>::integrate(func, lowerlim, upperlim, NMaxIter, epsTolerance, &error);
   return result;
@@ -150,4 +151,5 @@ double CoulCorrCalc::CoulCorrValue(const double alpha, const double R, const dou
   double CCvalue = FullCorrFuncValue(alpha, R, Q);
   return CCvalue/C0value;
 }
+
 
