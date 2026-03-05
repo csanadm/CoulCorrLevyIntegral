@@ -42,10 +42,10 @@ class CoulCorrCalc
 
 private:
   // Private functions, explained in the source code
-  double f_s_y_integrand(const double y, const double q, const double RLCMS, const double alpha);
+  inline double f_s_y_integrand(const double y, const double q, const double RLCMS, const double alpha);
   double f_s(const double q, const double R, const double alpha);
-  double A_1_s_wo_int(const double x, const double k, const double R, const double alpha, const double eta);
-  double A_2_s_wo_int(const double x, const double k, const double R, const double alpha, const double eta);
+  inline double A_1_s_wo_int(const double x, const double k, const double R, const double alpha, const double eta);
+  inline double A_2_s_wo_int(const double x, const double k, const double R, const double alpha, const double eta);
   double A1_int(const double k, const double R, const double alpha, const double eta);
   double A2_int(const double k, const double R, const double alpha, const double eta);
   const double calc_eta(const double k); // k: MeV/c
@@ -68,3 +68,4 @@ private:
 };
 
 #endif // _CoulCorrCalc_h_
+
